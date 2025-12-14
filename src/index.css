@@ -56,7 +56,7 @@ body {
   overflow-x: hidden;
   background-color: #000;
   color: var(--color-dark-100);
-  font-family: var(--font-semibold);
+  font-family: var(--font-regular);
 }
 
 @utility flex-center {
@@ -119,7 +119,7 @@ body {
       @apply col-center relative z-10 lg:translate-y-16;
 
       h1 {
-        @apply font-semibold text-white lg:text-3xl 2xl:text-5xl;
+        @apply text-white lg:text-3xl 2xl:text-5xl;
       }
 
       img {
@@ -132,11 +132,7 @@ body {
     }
 
     button {
-      @apply bg-primary relative z-10 mt-10 mb-5 cursor-pointer rounded-full px-6 py-2 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:mt-0;
-    }
-
-    p {
-      @apply lg:h3-semibold base-semibold;
+      @apply bg-primary relative z-10 mt-10 mb-5 cursor-pointer rounded-full px-6 py-2 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:shadow-[0px_0px_40px_10px_#ffffff50] lg:mt-0;
     }
   }
 
