@@ -105,9 +105,9 @@ function Performance() {
         {isMobile ? (
           <img
             src={performanceMobileImage.src}
-            alt="Tablet"
+            alt={performanceMobileImage.alt}
             className="p5 scale-250"
-            id={performanceMobileImage.alt}
+            id="mobile-image"
           />
         ) : (
           performanceImages.map(({ id, src }) => (
