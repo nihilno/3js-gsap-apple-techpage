@@ -51,7 +51,7 @@ function StarProduct() {
   }, [color]);
 
   return (
-    <section id="star-product">
+    <section id="star-product" className="scroll-mt-20">
       <h2>Take a closer look.</h2>
 
       <div className="controls">

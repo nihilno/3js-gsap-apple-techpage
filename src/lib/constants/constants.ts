@@ -17,7 +17,7 @@ export const performanceImages = [
   { id: "p7", src: "/performance7.png" },
 ];
 
-export const performanceImgPositions: PerformaceImgPositionProps[] = [
+export const performanceImgPositions: PerformanceImgPositionProps[] = [
   {
     id: "p1",
     left: 5,
@@ -54,7 +54,10 @@ export const performanceImgPositions: PerformaceImgPositionProps[] = [
     bottom: 0,
   },
 ];
-
+export const performanceMobileImage = {
+  src: "/performance5.jpg",
+  alt: "M4 chip graphics performance on iPad",
+};
 // const features = [
 //   {
 //     id: 1,

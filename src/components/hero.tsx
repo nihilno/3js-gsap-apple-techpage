@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -24,6 +25,10 @@ function Hero() {
 
       <button>Buy</button>
       <p className="font-extralight">From $1599 or $133/mo for 12 months</p>
+
+      <a href="#star-product" className="group cursor-pointer">
+        <IoIosArrowDown className="h-6 w-6 translate-y-20 animate-bounce text-white transition-all duration-200 ease-in-out group-hover:translate-y-22" />
+      </a>
     </section>
   );
 }

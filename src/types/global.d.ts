@@ -6,7 +6,7 @@ declare global {
     isMobile: boolean;
   };
 
-  type PerformaceImgPositionProps = {
+  type PerformanceImgPositionProps = {
     id: string;
     left?: number;
     right?: number;

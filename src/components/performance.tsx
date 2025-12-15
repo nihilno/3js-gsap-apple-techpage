@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import {
   performanceImages,
   performanceImgPositions,
+  performanceMobileImage,
 } from "../lib/constants/constants";
 
 function Performance() {
@@ -42,15 +43,32 @@ function Performance() {
           ease: "power2.out",
           duration: 0.8,
           scrollTrigger: {
-            trigger: ".content p",
+            trigger: "#performance .content p",
             start: "top bottom",
             end: "top center",
             scrub: true,
           },
         },
       );
-
-      if (isMobile) return;
+      if (isMobile) {
+        gsap.fromTo(
+          "#mobile-image",
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "expo.inOut",
+            scrollTrigger: {
+              trigger: "#mobile-image",
+              scrub: 1,
+              start: "top bottom",
+              end: "top center",
+            },
+          },
+        );
+      }
 
       const tl = gsap.timeline({
         defaults: { ease: "power1-inOut", duration: 2, overwrite: "auto" },
@@ -86,10 +104,10 @@ function Performance() {
       <div className="wrapper">
         {isMobile ? (
           <img
-            src="/performance5.jpg"
+            src={performanceMobileImage.src}
             alt="Tablet"
-            className="p5 scale-250!"
-            id="mobile-image"
+            className="p5 scale-250"
+            id={performanceMobileImage.alt}
           />
         ) : (
           performanceImages.map(({ id, src }) => (
