@@ -23,7 +23,7 @@ function Hero() {
       ></video>
 
       <button>Buy</button>
-      <p>From $1599 or $133/mo for 12 months</p>
+      <p className="font-extralight">From $1599 or $133/mo for 12 months</p>
     </section>
   );
 }

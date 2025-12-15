@@ -13,6 +13,29 @@ function StarProduct() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#star-product h2",
+        start: "top bottom",
+        end: "top center",
+        scrub: true,
+      },
+    });
+
+    tl.fromTo(
+      "#star-product h2",
+      {
+        opacity: 0,
+        yPercent: 20,
+      },
+      {
+        opacity: 1,
+        yPercent: 0,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
+
     gsap.fromTo(
       "#color-title",
       { opacity: 0, y: -40, filter: "blur(6px)" },
@@ -34,7 +57,7 @@ function StarProduct() {
       <div className="controls">
         <h3
           id="color-title"
-          className="text-lgl absolute top-0 left-1/2 w-full -translate-x-1/2 -translate-y-35 text-center font-semibold text-white"
+          className="text-lgl absolute top-0 left-1/2 w-full -translate-x-1/2 -translate-y-35 text-center font-extralight text-white"
         >
           {colorDescriptions[color]}
         </h3>
