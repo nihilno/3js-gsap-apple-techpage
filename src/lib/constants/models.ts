@@ -24,17 +24,17 @@ export const noChangeParts = [
 ];
 
 export const modelColors = [
-  "#1D1D1F",
-  "#A2AAAD",
-  "#191970",
-  "#DEA193",
-  "#C7372F",
+  "#2C2C2E",
+  "#D1D5DB",
+  "#2563EB",
+  "#FECACA",
+  "#DC2626",
 ];
 
 export const colorDescriptions: Record<string, string> = {
-  "#1D1D1F": "Space Black — bold, striking.",
-  "#A2AAAD": "Silver Gray — timeless, refined.",
-  "#191970": "Midnight Blue — sleek, understated.",
-  "#DEA193": "Rose Gold — warm, luxurious.",
-  "#C7372F": "Candy Red — vibrant, expressive.",
+  "#2C2C2E": "Space Black — bold, striking.",
+  "#D1D5DB": "Silver Gray — timeless, refined.",
+  "#2563EB": "Midnight Blue — sleek, understated.",
+  "#FECACA": "Rose Gold — warm, luxurious.",
+  "#DC2626": "Candy Red — vibrant, expressive.",
 };

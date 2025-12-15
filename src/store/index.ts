@@ -9,11 +9,11 @@ type MacBookStore = {
 };
 
 const useMacBookStore = create<MacBookStore>((set) => ({
-  color: "#1D1D1F",
+  color: "#2C2C2E",
   setColor: (color) => set({ color }),
   scale: 0.08,
   setScale: (scale) => set({ scale }),
-  reset: () => set({ color: "#1D1D1F", scale: 0.08 }),
+  reset: () => set({ color: "#2C2C2E", scale: 0.08 }),
 }));
 
 export default useMacBookStore;

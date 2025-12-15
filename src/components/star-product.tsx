@@ -13,6 +13,22 @@ function StarProduct() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#star-product",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: true,
+      },
+    });
+
+    tl.from("#star-product h2", {
+      opacity: 0,
+      yPercent: 50,
+      ease: "power1.inOut",
+      duration: 1.2,
+    });
+
     gsap.fromTo(
       "#color-title",
       { opacity: 0, y: -40, filter: "blur(6px)" },
@@ -46,7 +62,8 @@ function StarProduct() {
                 onClick={() => setColor(modelColor)}
                 className={cn(
                   "transition-all duration-300 ease-out hover:scale-105",
-                  color === modelColor && "ring-2 ring-white",
+                  color === modelColor &&
+                    "shadow-[0px_0px_10px_10px_#ffffff20] ring-5 ring-white",
                 )}
               />
             ))}
@@ -58,7 +75,7 @@ function StarProduct() {
               className={cn(
                 "transition-all duration-300 ease-in-out select-none hover:scale-105",
                 scale === 0.06
-                  ? "bg-white text-black"
+                  ? "bg-white text-black shadow-[0px_0px_10px_10px_#ffffff20]"
                   : "bg-transparent text-white",
               )}
             >
@@ -69,7 +86,7 @@ function StarProduct() {
               className={cn(
                 "transition-colors duration-200 select-none",
                 scale === 0.08
-                  ? "bg-white text-black"
+                  ? "bg-white text-black shadow-[0px_0px_10px_10px_#ffffff20]"
                   : "bg-transparent text-white",
               )}
             >

@@ -9,7 +9,7 @@ function Navbar() {
         <ul>
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a href={link.label}>{link.label}</a>
+              <a href={link.href}>{link.label}</a>
             </li>
           ))}
         </ul>

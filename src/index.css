@@ -159,7 +159,7 @@ body {
         @apply flex-between gap-4 rounded-full bg-neutral-800 px-6 py-3;
 
         div {
-          @apply size-7 cursor-pointer rounded-full;
+          @apply size-6 cursor-pointer rounded-full;
         }
       }
 
@@ -167,7 +167,7 @@ body {
         @apply small-medium flex-between gap-2 rounded-full bg-neutral-800 px-6 py-2.5;
 
         div {
-          @apply flex-center size-8 cursor-pointer rounded-full bg-white text-black;
+          @apply flex-center size-7.5 cursor-pointer rounded-full bg-white text-black;
         }
       }
     }
