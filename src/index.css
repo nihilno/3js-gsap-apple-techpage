@@ -161,10 +161,6 @@ body {
         div {
           @apply size-7 cursor-pointer rounded-full;
         }
-
-        .active {
-          @apply ring-light-100 size-5 ring-5;
-        }
       }
 
       .size-control {

@@ -1,4 +1,4 @@
-import { navLinks } from "../lib/constants";
+import { navLinks } from "../lib/constants/constants";
 
 function Navbar() {
   return (
