@@ -38,8 +38,8 @@ function StarProduct() {
         >
           {isBlack
             ? "Space Black — bold, striking."
-            : "Silver Gray — timeless, refinded."}
-        </h3>
+            : "Silver Gray — timeless, refined."}
+        </h3>{" "}
         <div className="flex-center mt-5 gap-5">
           <div className="color-control">
             <div
