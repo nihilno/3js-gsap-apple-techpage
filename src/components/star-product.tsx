@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import { useMediaQuery } from "react-responsive";
+import { colorDescriptions, modelColors } from "../lib/constants/models";
 import { cn } from "../lib/utils";
 import useMacBookStore from "../store";
 import ModelSwitcher from "./three/model-switcher";
@@ -10,7 +11,6 @@ import StudioLights from "./three/studio-lights";
 function StarProduct() {
   const { color, scale, setColor, setScale } = useMacBookStore();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const isBlack = color !== "#adb5bd";
 
   useGSAP(() => {
     gsap.fromTo(
@@ -25,7 +25,7 @@ function StarProduct() {
         ease: "expo.out",
       },
     );
-  }, [isBlack]);
+  }, [color]);
 
   return (
     <section id="star-product">
@@ -36,33 +36,27 @@ function StarProduct() {
           id="color-title"
           className="text-lgl absolute top-0 left-1/2 w-full -translate-x-1/2 -translate-y-35 text-center font-semibold text-white"
         >
-          {isBlack
-            ? "Space Black — bold, striking."
-            : "Silver Gray — timeless, refined."}
-        </h3>{" "}
+          {colorDescriptions[color]}
+        </h3>
         <div className="flex-center mt-5 gap-5">
           <div className="color-control">
-            <div
-              onClick={() => setColor("#adb5bd")}
-              className={cn(
-                "bg-neutral-300 transition-all duration-50 ease-in-out",
-                color === "#adb5bd" && "border-primary border-5",
-              )}
-            />
-            <div
-              onClick={() => setColor("#2e2c2e")}
-              className={cn(
-                "bg-neutral-900 transition-all duration-50 ease-in-out",
-                color === "#2e2c2e" && "border-primary border-5",
-              )}
-            />
+            {modelColors.map((modelColor) => (
+              <div
+                style={{ backgroundColor: modelColor }}
+                onClick={() => setColor(modelColor)}
+                className={cn(
+                  "transition-all duration-300 ease-out hover:scale-105",
+                  color === modelColor && "ring-2 ring-white",
+                )}
+              />
+            ))}
           </div>
 
           <div className="size-control">
             <div
               onClick={() => setScale(0.06)}
               className={cn(
-                "transition-colors duration-200 select-none",
+                "transition-all duration-300 ease-in-out select-none hover:scale-105",
                 scale === 0.06
                   ? "bg-white text-black"
                   : "bg-transparent text-white",
