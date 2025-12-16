@@ -15,7 +15,7 @@ function Showcase() {
         opacity: 1,
         yPercent: 0,
         ease: "power1.inOut",
-        duration: 0.7,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: ".wrapper",
           start: "top 80%",
