@@ -33,58 +33,42 @@ function ModelScroll() {
   }, []);
 
   useGSAP(() => {
-    const modelTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#f-canvas",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        pin: true,
-      },
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#f-canvas",
-        start: "top center",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    if (groupRef.current) {
-      modelTl.to(groupRef.current.rotation, {
-        y: Math.PI * 2,
-        ease: "power1.inOut",
+    const ctx = gsap.context(() => {
+      const modelTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#f-canvas",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          pin: true,
+        },
       });
-    }
-
-    tl.call(() => setTexture("/videos/feature-1.mp4"))
-      .to(".box-1", {
-        opacity: 1,
-        y: 0,
-        delay: 1,
-      })
-      .call(() => setTexture("/videos/feature-2.mp4"))
-      .to(".box-2", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-3.mp4"))
-      .to(".box-3", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-4.mp4"))
-      .to(".box-4", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-5.mp4"))
-      .to(".box-5", {
-        opacity: 1,
-        y: 0,
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#f-canvas",
+          start: "top center",
+          end: "bottom top",
+          scrub: 1,
+        },
       });
+      if (groupRef.current) {
+        modelTl.to(groupRef.current.rotation, {
+          y: Math.PI * 2,
+          ease: "power1.inOut",
+        });
+      }
+      tl.call(() => setTexture("/videos/feature-1.webm"))
+        .to(".box-1", { opacity: 1, y: 0, delay: 1 })
+        .call(() => setTexture("/videos/feature-2.webm"))
+        .to(".box-2", { opacity: 1, y: 0 })
+        .call(() => setTexture("/videos/feature-3.webm"))
+        .to(".box-3", { opacity: 1, y: 0 })
+        .call(() => setTexture("/videos/feature-4.webm"))
+        .to(".box-4", { opacity: 1, y: 0 })
+        .call(() => setTexture("/videos/feature-5.webm"))
+        .to(".box-5", { opacity: 1, y: 0 });
+    });
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -104,25 +88,25 @@ function ModelScroll() {
 
 function Features() {
   useGSAP(() => {
-    gsap.fromTo(
-      "#features h2",
-      {
-        opacity: 0,
-        yPercent: 5,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        ease: "power1.inOut",
-        duration: 0.7,
-        scrollTrigger: {
-          trigger: "#features h2",
-          start: "top 90%",
-          end: "top center",
-          scrub: 1,
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        "#features h2",
+        { opacity: 0, yPercent: 5 },
+        {
+          opacity: 1,
+          yPercent: 0,
+          ease: "power1.inOut",
+          duration: 0.7,
+          scrollTrigger: {
+            trigger: "#features h2",
+            start: "top 90%",
+            end: "top center",
+            scrub: 1,
+          },
         },
-      },
-    );
+      );
+    });
+    return () => ctx.revert();
   }, []);
 
   return (

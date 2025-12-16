@@ -12,17 +12,12 @@ function Hero() {
     <section id="hero">
       <div>
         <h1>MacBook Pro</h1>
-        <img src="/title.png" alt="MacBook title" />
+        <img src="/title.webp" alt="MacBook title" />
       </div>
-
-      <video
-        src="/videos/hero.mp4"
-        autoPlay
-        muted
-        playsInline
-        ref={videoRef}
-      ></video>
-
+      <video autoPlay muted playsInline ref={videoRef} preload="metadata">
+        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
       <button>Buy</button>
       <p className="font-extralight">From $1599 or $133/mo for 12 months</p>
 

@@ -5,47 +5,52 @@ import { useMediaQuery } from "react-responsive";
 function Showcase() {
   const isTablet = useMediaQuery({ maxWidth: 1024 });
   useGSAP(() => {
-    gsap.fromTo(
-      ".wrapper",
-      {
-        opacity: 0,
-        yPercent: 5,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        ease: "power1.inOut",
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: ".wrapper",
-          start: "top 80%",
-          end: "top center",
-          scrub: true,
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".wrapper",
+        { opacity: 0, yPercent: 5 },
+        {
+          opacity: 1,
+          yPercent: 0,
+          ease: "power1.inOut",
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: ".wrapper",
+            start: "top 80%",
+            end: "top center",
+            scrub: true,
+          },
         },
-      },
-    );
+      );
 
-    if (!isTablet) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#showcase",
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          pin: true,
-        },
-      });
+      if (!isTablet) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#showcase",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            pin: true,
+          },
+        });
 
-      tl.to(".mask img", {
-        transform: "scale(1.4)",
-      }).to(".content", { opacity: 1, y: 0, ease: "power1.in" });
-    }
+        tl.to(".mask img", { scale: 1.4 }).to(".content", {
+          opacity: 1,
+          y: 0,
+          ease: "power1.in",
+        });
+      }
+    });
+    return () => ctx.revert();
   }, [isTablet]);
 
   return (
     <section id="showcase">
       <div className="media">
-        <video src="/videos/game.mp4" loop muted playsInline autoPlay />
+        <video autoPlay muted playsInline loop preload="metadata">
+          <source src="/videos/game.webm" type="video/webm" />
+          <source src="/videos/game.mp4" type="video/mp4" />
+        </video>
         <div className="mask">
           <img src="/mask-logo.svg" alt="Mask" />
         </div>

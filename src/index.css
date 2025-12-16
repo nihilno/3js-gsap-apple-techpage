@@ -114,10 +114,6 @@ svg {
 
       ul {
         @apply flex-center gap-8;
-
-        a {
-          @apply font-regular hidden cursor-pointer text-sm text-white opacity-80 transition-all duration-300 ease-in-out hover:opacity-100 md:block;
-        }
       }
     }
   }
@@ -315,7 +311,7 @@ svg {
         @apply flex -translate-y-5 flex-col justify-between gap-5 opacity-0;
 
         div:first-of-type {
-          @apply h-full rounded-3xl bg-[url(/highlight-bg.png)] bg-cover bg-no-repeat p-10 lg:pt-20 2xl:pt-32;
+          @apply h-full rounded-3xl bg-[url(/highlight-bg.webp)] bg-cover bg-no-repeat p-10 lg:pt-20 2xl:pt-32;
 
           p {
             @apply max-w-2xs text-4xl font-semibold;

@@ -16,58 +16,56 @@ function StarProduct() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   useGSAP(() => {
-    gsap.fromTo(
-      "#star-product h2",
-      {
-        opacity: 0,
-        yPercent: 5,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        ease: "power1.inOut",
-        duration: 0.7,
-        scrollTrigger: {
-          trigger: "#star-product h2",
-          start: "top 90%",
-          end: "top center",
-          scrub: 1,
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        "#star-product h2",
+        { opacity: 0, yPercent: 5 },
+        {
+          opacity: 1,
+          yPercent: 0,
+          ease: "power1.inOut",
+          duration: 0.7,
+          scrollTrigger: {
+            trigger: "#star-product h2",
+            start: "top 90%",
+            end: "top center",
+            scrub: 1,
+          },
         },
-      },
-    );
+      );
 
-    gsap.fromTo(
-      ".size-control, .color-control",
-      {
-        opacity: 0,
-        yPercent: 10,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        ease: "power1.inOut",
-        duration: 0.7,
-        scrollTrigger: {
-          trigger: ".size-control",
-          start: "top bottom",
-          end: "top 80%",
-          scrub: 1,
+      gsap.fromTo(
+        ".size-control, .color-control",
+        { opacity: 0, yPercent: 10 },
+        {
+          opacity: 1,
+          yPercent: 0,
+          ease: "power1.inOut",
+          duration: 0.7,
+          scrollTrigger: {
+            trigger: ".size-control",
+            start: "top bottom",
+            end: "top 90%",
+            scrub: 1,
+          },
         },
-      },
-    );
+      );
 
-    gsap.fromTo(
-      "#color-title",
-      { opacity: 0, y: -40, filter: "blur(6px)" },
-      {
-        opacity: 1,
-        y: -80,
-        filter: "blur(0px)",
-        stagger: 0.06,
-        duration: 1.4,
-        ease: "expo.out",
-      },
-    );
+      gsap.fromTo(
+        "#color-title",
+        { opacity: 0, y: -40, filter: "blur(6px)" },
+        {
+          opacity: 1,
+          y: -80,
+          filter: "blur(0px)",
+          stagger: 0.06,
+          duration: 1.4,
+          ease: "expo.out",
+        },
+      );
+    });
+
+    return () => ctx.revert();
   }, [color]);
 
   return (
@@ -125,6 +123,7 @@ function StarProduct() {
 
       <Canvas
         id="canvas"
+        dpr={[1, 2]}
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
