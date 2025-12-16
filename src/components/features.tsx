@@ -116,10 +116,10 @@ function Features() {
       <a
         href="#highlights"
         className="group absolute top-70 left-1/2 z-50 cursor-pointer"
+        aria-label="Scroll to highlights section"
       >
         <IoIosArrowDown className="h-6 w-6 translate-y-20 animate-pulse text-white transition-all duration-200 ease-in-out group-hover:translate-y-22" />
       </a>
-
       <Canvas id="f-canvas" camera={{}}>
         <StudioLights />
         <ambientLight intensity={0.5} />
