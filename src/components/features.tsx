@@ -3,6 +3,7 @@ import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import { Suspense, useEffect, useRef } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 import { useMediaQuery } from "react-responsive";
 import * as THREE from "three";
 import { features, featureSequence } from "../lib/constants/constants";
@@ -110,8 +111,14 @@ function Features() {
   }, []);
 
   return (
-    <section id="features">
+    <section id="features" className="relative">
       <h2>See it all in a new light.</h2>
+      <a
+        href="#highlights"
+        className="group absolute top-70 left-1/2 z-50 cursor-pointer"
+      >
+        <IoIosArrowDown className="h-6 w-6 translate-y-20 animate-pulse text-white transition-all duration-200 ease-in-out group-hover:translate-y-22" />
+      </a>
 
       <Canvas id="f-canvas" camera={{}}>
         <StudioLights />

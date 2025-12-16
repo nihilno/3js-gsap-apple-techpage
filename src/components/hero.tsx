@@ -19,7 +19,7 @@ function Hero() {
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
       <button>Buy</button>
-      <p className="font-extralight">From $1599 or $133/mo for 12 months</p>
+      <p className="font-regular">From $1599 or $133/mo for 12 months</p>
 
       <a href="#star-product" className="group cursor-pointer">
         <IoIosArrowDown className="h-6 w-6 translate-y-20 animate-pulse text-white transition-all duration-200 ease-in-out group-hover:translate-y-22" />

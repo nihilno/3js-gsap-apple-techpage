@@ -75,7 +75,7 @@ function StarProduct() {
       <div className="controls">
         <h3
           id="color-title"
-          className="absolute top-12 left-1/2 w-full -translate-x-1/2 text-center text-sm font-extralight text-white sm:top-0 sm:text-lg"
+          className="font-regular absolute top-12 left-1/2 w-full -translate-x-1/2 text-center text-sm text-white sm:top-0 sm:text-lg"
         >
           {colorDescriptions[color]}
         </h3>
