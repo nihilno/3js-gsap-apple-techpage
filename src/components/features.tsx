@@ -81,7 +81,7 @@ function ModelScroll() {
           </Html>
         }
       >
-        <MacbookModel scale={isMobile ? 0.06 : 0.1} position={[0, -1, 0]} />
+        <MacbookModel scale={isMobile ? 0.05 : 0.09} position={[0, -2, 0]} />
       </Suspense>
     </group>
   );
@@ -120,7 +120,7 @@ function Features() {
       >
         <IoIosArrowDown className="h-6 w-6 translate-y-20 animate-pulse text-white transition-all duration-200 ease-in-out group-hover:translate-y-22" />
       </a>
-      <Canvas id="f-canvas" camera={{}}>
+      <Canvas id="f-canvas">
         <StudioLights />
         <ambientLight intensity={0.5} />
         <ModelScroll />

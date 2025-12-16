@@ -18,7 +18,7 @@ function Highlights() {
     });
   }, []);
   return (
-    <section id="highlights">
+    <section id="highlights" className="mt-32">
       <div id="title">
         <h2>There's never been a better time to upgrade.</h2>
         <h3>Here's what you get with the new MacBook Pro.</h3>

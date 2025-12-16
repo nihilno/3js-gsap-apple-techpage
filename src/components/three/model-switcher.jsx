@@ -21,9 +21,9 @@ const ModelSwitcher = ({ scale, isMobile }) => {
   return (
     <PresentationControls {...controlsConfig}>
       {showLargeMacbook ? (
-        <MacbookModel16 scale={isMobile ? 0.05 : 0.08} />
+        <MacbookModel16 scale={isMobile ? 0.05 : 0.08} position={[0, 0.5, 0]} />
       ) : (
-        <MacbookModel14 scale={isMobile ? 0.03 : 0.06} />
+        <MacbookModel14 scale={isMobile ? 0.03 : 0.06} position={[0, 0.5, 0]} />
       )}
     </PresentationControls>
   );
