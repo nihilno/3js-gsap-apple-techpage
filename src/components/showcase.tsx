@@ -5,6 +5,26 @@ import { useMediaQuery } from "react-responsive";
 function Showcase() {
   const isTablet = useMediaQuery({ maxWidth: 1024 });
   useGSAP(() => {
+    gsap.fromTo(
+      ".wrapper",
+      {
+        opacity: 0,
+        yPercent: 5,
+      },
+      {
+        opacity: 1,
+        yPercent: 0,
+        ease: "power1.inOut",
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: ".wrapper",
+          start: "top 80%",
+          end: "top center",
+          scrub: true,
+        },
+      },
+    );
+
     if (!isTablet) {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -17,7 +37,7 @@ function Showcase() {
       });
 
       tl.to(".mask img", {
-        transform: "scale(1.15)",
+        transform: "scale(1.4)",
       }).to(".content", { opacity: 1, y: 0, ease: "power1.in" });
     }
   }, [isTablet]);

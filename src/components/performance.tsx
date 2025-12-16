@@ -18,18 +18,18 @@ function Performance() {
         "#performance h2",
         {
           opacity: 0,
-          y: 10,
+          yPercent: 5,
         },
         {
           opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
+          yPercent: 0,
+          ease: "power1.inOut",
+          duration: 0.7,
           scrollTrigger: {
             trigger: "#performance h2",
-            start: "top bottom",
+            start: "top 90%",
             end: "top center",
-            scrub: true,
+            scrub: 1,
           },
         },
       );
@@ -106,7 +106,7 @@ function Performance() {
           <img
             src={performanceMobileImage.src}
             alt={performanceMobileImage.alt}
-            className="p5 scale-250"
+            className="p5 scale-200 sm:scale-250"
             id="mobile-image"
           />
         ) : (

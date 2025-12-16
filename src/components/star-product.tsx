@@ -1,10 +1,13 @@
 import { useGSAP } from "@gsap/react";
+import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
+import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { colorDescriptions, modelColors } from "../lib/constants/models";
 import { cn } from "../lib/utils";
 import useMacBookStore from "../store";
+import ModelLoader from "./loaders/model-scroll-loader";
 import ModelSwitcher from "./three/model-switcher";
 import StudioLights from "./three/studio-lights";
 
@@ -13,26 +16,43 @@ function StarProduct() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#star-product h2",
-        start: "top bottom",
-        end: "top center",
-        scrub: true,
-      },
-    });
-
-    tl.fromTo(
+    gsap.fromTo(
       "#star-product h2",
       {
         opacity: 0,
-        yPercent: 20,
+        yPercent: 5,
       },
       {
         opacity: 1,
         yPercent: 0,
-        duration: 1,
         ease: "power1.inOut",
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: "#star-product h2",
+          start: "top 90%",
+          end: "top center",
+          scrub: 1,
+        },
+      },
+    );
+
+    gsap.fromTo(
+      ".size-control, .color-control",
+      {
+        opacity: 0,
+        yPercent: 10,
+      },
+      {
+        opacity: 1,
+        yPercent: 0,
+        ease: "power1.inOut",
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: ".size-control",
+          start: "top bottom",
+          end: "top 80%",
+          scrub: 1,
+        },
       },
     );
 
@@ -57,14 +77,15 @@ function StarProduct() {
       <div className="controls">
         <h3
           id="color-title"
-          className="text-lgl absolute top-0 left-1/2 w-full -translate-x-1/2 -translate-y-35 text-center font-extralight text-white"
+          className="absolute top-12 left-1/2 w-full -translate-x-1/2 text-center text-sm font-extralight text-white sm:top-0 sm:text-lg"
         >
           {colorDescriptions[color]}
         </h3>
-        <div className="flex-center mt-5 gap-5">
+        <div className="mt-5 flex flex-col items-center gap-5 sm:flex-row">
           <div className="color-control">
             {modelColors.map((modelColor) => (
               <div
+                key={modelColor}
                 style={{ backgroundColor: modelColor }}
                 onClick={() => setColor(modelColor)}
                 className={cn(
@@ -107,10 +128,18 @@ function StarProduct() {
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
-        <ModelSwitcher
-          scale={isMobile ? scale - 0.03 : scale}
-          isMobile={isMobile}
-        />
+        <Suspense
+          fallback={
+            <Html>
+              <ModelLoader />
+            </Html>
+          }
+        >
+          <ModelSwitcher
+            scale={isMobile ? scale - 0.03 : scale}
+            isMobile={isMobile}
+          />
+        </Suspense>
       </Canvas>
     </section>
   );

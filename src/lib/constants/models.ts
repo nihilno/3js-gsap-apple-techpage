@@ -24,16 +24,16 @@ export const noChangeParts = [
 ];
 
 export const modelColors = [
-  "#1D1D1F",
   "#A2AAAD",
+  "#1D1D1F",
   "#191970",
   "#DEA193",
   "#C7372F",
 ];
 
 export const colorDescriptions: Record<string, string> = {
-  "#1D1D1F": "Space Black — bold, striking.",
   "#A2AAAD": "Silver Gray — timeless, refined.",
+  "#1D1D1F": "Space Black — bold, striking.",
   "#191970": "Midnight Blue — sleek, understated.",
   "#DEA193": "Rose Gold — warm, luxurious.",
   "#C7372F": "Candy Red — vibrant, expressive.",
