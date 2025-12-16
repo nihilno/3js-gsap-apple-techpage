@@ -10,11 +10,10 @@ function Navbar() {
 
         <ul>
           {navLinks.map((link) => (
-            <li
-              className="font-regular hidden cursor-pointer text-sm text-white opacity-75 transition-all duration-300 ease-in-out hover:opacity-100 sm:block"
-              key={link.label}
-            >
-              {link.label}
+            <li key={link.label}>
+              <button className="font-regular hidden cursor-pointer text-sm text-white opacity-75 transition-all duration-300 ease-in-out hover:opacity-100 sm:block">
+                {link.label}
+              </button>
             </li>
           ))}
         </ul>
