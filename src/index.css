@@ -50,10 +50,6 @@
   display: none;
 }
 
-* {
-  user-select: none;
-}
-
 html {
   width: 100vw;
   overflow-x: hidden;
@@ -66,6 +62,11 @@ body {
   background-color: #000;
   color: var(--color-dark-100);
   font-family: var(--font-regular);
+}
+
+img,
+svg {
+  user-select: none;
 }
 
 @utility flex-center {
@@ -401,7 +402,7 @@ body {
   }
 
   footer {
-    @apply container mx-auto py-7 max-lg:px-5;
+    @apply container mx-auto py-10 max-lg:px-5;
 
     .info {
       @apply flex-between;

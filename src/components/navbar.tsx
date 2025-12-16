@@ -4,7 +4,9 @@ function Navbar() {
   return (
     <header>
       <nav>
-        <img src="/logo.svg" alt="Apple Logo" />
+        <a href="#">
+          <img src="/logo.svg" alt="Apple Logo" />
+        </a>
 
         <ul>
           {navLinks.map((link) => (
