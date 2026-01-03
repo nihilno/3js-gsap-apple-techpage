@@ -6,7 +6,8 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <LenisProvider />
-    <App />
+    <LenisProvider>
+      <App />
+    </LenisProvider>
   </StrictMode>,
 );

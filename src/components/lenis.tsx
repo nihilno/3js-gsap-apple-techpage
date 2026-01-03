@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-function LenisProvider() {
+function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: false,
@@ -24,7 +24,7 @@ function LenisProvider() {
 
     return () => lenis.destroy();
   }, []);
-  return null;
+  return children;
 }
 
 export default LenisProvider;

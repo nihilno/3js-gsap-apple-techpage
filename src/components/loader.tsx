@@ -4,14 +4,14 @@ export default function LoaderOverlay() {
   useEffect(() => {
     const el = document.getElementById("loader");
     const video = document.querySelector<HTMLVideoElement>("#hero-video");
-    if (!el) return;
+    if (!el || !video) return;
 
     const timer = setTimeout(() => {
       el.classList.remove("opacity-100");
       el.classList.add("opacity-0", "pointer-events-none");
 
-      video!.currentTime = 0;
-      video?.play();
+      video.currentTime = 0;
+      video.play();
     }, 1200);
 
     return () => clearTimeout(timer);
