@@ -14,7 +14,13 @@ function Hero() {
         <h1>MacBook Pro</h1>
         <img src="/title.webp" alt="MacBook title" />
       </div>
-      <video autoPlay muted playsInline ref={videoRef} preload="metadata">
+      <video
+        id="hero-video"
+        muted
+        playsInline
+        preload="metadata"
+        ref={videoRef}
+      >
         <source src="/videos/hero.webm" type="video/webm" />
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
