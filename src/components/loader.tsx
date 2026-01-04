@@ -12,7 +12,7 @@ export default function LoaderOverlay() {
 
       video.currentTime = 0;
       video.play();
-    }, 1200);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);
